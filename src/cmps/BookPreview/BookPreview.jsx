@@ -1,12 +1,17 @@
 
 
 export function BookPreview({ book }) {
+    console.log('book:', book)
+
     return (
-        <div className="flex flex-col justify-center align-center pointer book-preview">
-            {/* <div className="img-container">
-                <img src={`https://robohash.org/${book._id}`} alt="" />
+        <div className="flex flex-col justify-between align-center pointer book-preview">
+            <div className="flex justify-between align-center">
+                <h3>{book.title}</h3>
+                <input type="checkbox" />
             </div>
-            <p>{book.name}</p> */}
+            <h4>{book.author}</h4>
+            <p className="descp">{book.description}</p>
+            <div>Rating: </div>
         </div>
     )
 }

@@ -25,7 +25,7 @@ export class BookApp extends Component {
   async loadWishList() {
     try {
       const wishList = await wishListService.query();
-      console.log('wishList:', wishList)
+      // console.log('wishList:', wishList)
       this.setState({ wishList })
     } catch (err) {
       console.log('err:', err)
@@ -35,25 +35,26 @@ export class BookApp extends Component {
   async loadBooks() {
     try {
       const books = await bookService.getBooks();
-      console.log('books:', books)
+      // console.log('books:', books)
       this.setState({ books })
     } catch (err) {
       console.log('err:', err)
     }
   }
 
-  bookToShow = () => {
+  get bookToShow () {
     const book = this.state.books[this.state.currBookIdx]
     return book
   }
 
 
   render() {
+    const {books} = this.state
     return (
       <Router>
         <div className="main-layout book-app">
           <AppHeader />
-          <BookPreview book="bookToShow" />
+          {books && <BookPreview book={this.bookToShow} />}
           {/* <Switch>
             <Route component={ContactApp} path='/contact' />
             <Route component={Home} path='/' />

@@ -1,11 +1,41 @@
+.book-preview {
+    border-radius: 2px;
+    margin-top: 100px;
+    background-color: $clr5;
+    width: 400px;
+    height: 400px;
+    padding: 20px;
 
+    > * {
+        width: 100%;
+        &:first-child {
+            border-bottom: 1px solid gray;
+        }
+    }
 
-.contact-preview {
-    background-color: $clr3;
-    border-radius: 6px;
+    h3 {
+        margin: 0;
+    }
 
-    .img-container {
-        width: 150px;
-        height: 150px;
+    .descp {
+        max-height: 200px;
+        overflow: auto;
+
+        &::-webkit-scrollbar {
+            width: 10px;
+            height: 10px;
+        }
+        &::-webkit-scrollbar-thumb {
+            background: linear-gradient(14deg, #abb0b2 14%, #505556 65%);
+            border-radius: 10px;
+        }
+        &::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(13deg, #abb0b2cb 14%, #505556cc 64%);
+        }
+        &::-webkit-scrollbar-track {
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: inset 7px 6px 12px #f0f0f0;
+        }
     }
 }
