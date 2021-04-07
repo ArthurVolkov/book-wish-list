@@ -6,8 +6,9 @@ export const wishListService = {
   remove
 }
 
-function query() {
-  return storageService.query('wish-list')
+function query(sortBy = null) {
+  const books = storageService.query('wish-list')
+  return books
 }
 
 function remove(wishListId) {

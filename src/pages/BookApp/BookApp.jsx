@@ -1,7 +1,6 @@
 import { HashRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
 import { Component } from 'react'
 import { AppHeader } from '../../cmps/AppHeader'
-// import { BookList } from '../../cmps/BookList'
 import { BookPreview } from '../../cmps/BookPreview';
 
 import { bookService } from '../../services/bookService'
@@ -14,7 +13,8 @@ export class BookApp extends Component {
   state = {
     books: null,
     wishList: null,
-    currBookIdx: 0
+    currBookIdx: 0,
+    filterBy: null
   }
 
   componentDidMount() {
@@ -24,7 +24,7 @@ export class BookApp extends Component {
 
   async loadWishList() {
     try {
-      const wishList = await wishListService.query();
+      const wishList = await wishListService.query(this.state.filterBy);
       console.log('wishList:', wishList)
       this.setState({ wishList })
     } catch (err) {
