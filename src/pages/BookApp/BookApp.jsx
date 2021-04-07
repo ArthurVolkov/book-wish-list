@@ -1,6 +1,7 @@
 import { HashRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
 import { Component } from 'react'
 import { AppHeader } from '../../cmps/AppHeader'
+import { BookList } from '../../cmps/BookList'
 
 
 
@@ -12,13 +13,11 @@ export class BookApp extends Component {
       <Router>
         <div className="main-layout book-app">
           <AppHeader />
-          <Switch>
-            {/* <Route component={ContactEdit} path='/contact/edit/:id?' />
-            <Route component={ContactDetails} path='/contact/:id' />
+          <BookList />
+          {/* <Switch>
             <Route component={ContactApp} path='/contact' />
-            <Route component={Statistic} path='/statistic' />
-            <Route component={Home} path='/' /> */}
-          </Switch>
+            <Route component={Home} path='/' />
+          </Switch> */}
         </div>
       </Router>
 
