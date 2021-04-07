@@ -27,6 +27,7 @@ function post(entityType, newEntity) {
             return newEntity
         })
 }
+<<<<<<< HEAD
 // function postMany(entityType, newEntities) {
 //     return query(entityType)
 //         .then(entities => {
@@ -38,6 +39,8 @@ function post(entityType, newEntity) {
 // }
 
 
+=======
+>>>>>>> d8ac87f967e063a71bb8a90cca7b23d25944859c
 
 function put(entityType, updatedEntity) {
     return query(entityType)
