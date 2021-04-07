@@ -6,7 +6,7 @@ export const wishListService = {
   remove
 }
 
-function query(filterBy) {
+function query() {
   return storageService.query('wish-list')
 }
 

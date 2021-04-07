@@ -14,8 +14,8 @@ export class Home extends Component {
     this.loadWishList()
   }
 
-  loadWishList() {
-    const wishList = wishListService.query();
+  async loadWishList() {
+    const wishList = await wishListService.query();
     this.setState({ wishList })
   }
 
