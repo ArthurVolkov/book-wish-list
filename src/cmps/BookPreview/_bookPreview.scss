@@ -20,6 +20,9 @@
     .descp {
         max-height: 200px;
         overflow: auto;
+        .rate-container * {
+            margin-inline-start: 10px;
+        }
 
         &::-webkit-scrollbar {
             width: 10px;
@@ -36,6 +39,27 @@
             background: #ffffff;
             border-radius: 10px;
             box-shadow: inset 7px 6px 12px #f0f0f0;
+        }
+    }
+}
+
+.book-preview-container {
+    position: relative;
+    width: 400px;
+
+    .btn-paging {
+        position: absolute;
+        top: 50%;
+        background-color: inherit;
+        border: none;
+        outline: none;
+        font-size: 3rem;
+        color: gray;
+        &.first {
+            left: -60px;
+        }
+        &.second {
+            right: -60px;
         }
     }
 }
