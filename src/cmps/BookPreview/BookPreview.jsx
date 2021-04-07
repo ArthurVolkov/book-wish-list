@@ -28,7 +28,7 @@ export class BookPreview extends Component {
                     count={5}
                     size={24}
                     edit={false}
-                    value={this.props.book.rating}
+                    value={+this.props.book.rating}
                     activeColor="#ffd700"
                 />
                 </div>
