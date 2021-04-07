@@ -3,18 +3,24 @@ import { storageService } from './async-storage.service'
 export const wishListService = {
   add,
   query,
+  get,
   remove
 }
 
-function query(sortBy = null) {
+function query(filterBy = null) {
   const books = storageService.query('wish-list')
   return books
 }
 
-function remove(wishListId) {
-  return storageService.delete('wish-list', wishListId)
+function get(bookName) {
+  const book = storageService.get('wish-list',bookName)
+  return book
+}
+
+function remove(bookName) {
+  return storageService.remove('wish-list', bookName)
 
 }
-async function add(wishList) {
-  return storageService.post('review', wishList)
+async function add(book) {
+  return storageService.post('wish-list', book)
 }

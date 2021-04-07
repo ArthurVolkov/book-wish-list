@@ -16,7 +16,7 @@ function query(entityType) {
 
 function get(entityType, entityId) {
     return query(entityType)
-        .then(entities => entities.find(entity => entity._id === entityId))
+        .then(entities => entities.find(entity => entity.name === entityId))
 }
 function post(entityType, newEntity) {
     newEntity._id = _makeId()
@@ -27,17 +27,6 @@ function post(entityType, newEntity) {
             return newEntity
         })
 }
-// function postMany(entityType, newEntities) {
-//     return query(entityType)
-//         .then(entities => {
-//             newEntities = newEntities.map(entity => ({...entity, _id: _makeId()}))
-//             entities.push(...newEntities)
-//             _save(entityType, entities)
-//             return newEntity
-//         })
-// }
-
-
 
 function put(entityType, updatedEntity) {
     return query(entityType)
@@ -52,7 +41,7 @@ function put(entityType, updatedEntity) {
 function remove(entityType, entityId) {
     return query(entityType)
         .then(entities => {
-            const idx = entities.findIndex(entity => entity._id === entityId)
+            const idx = entities.findIndex(entity => entity.name === entityId)
             entities.splice(idx, 1)
             _save(entityType, entities)
         })
