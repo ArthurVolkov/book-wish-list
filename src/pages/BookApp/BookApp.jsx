@@ -2,7 +2,7 @@ import { HashRouter as Router, Redirect, Route, Switch } from 'react-router-dom'
 import { Component } from 'react'
 import { AppHeader } from '../../cmps/AppHeader'
 // import { BookList } from '../../cmps/BookList'
-import { BookPreview } from '../BookPreview';
+import { BookPreview } from '../../cmps/BookPreview';
 
 import { bookService } from '../../services/bookService'
 import { wishListService } from '../../services/wishListService'
@@ -22,15 +22,24 @@ export class BookApp extends Component {
     this.loadWishList()
   }
 
-  loadWishList() {
-    const wishList = wishListService.query();
-    this.setState({ wishList })
+  async loadWishList() {
+    try {
+      const wishList = await wishListService.query();
+      console.log('wishList:', wishList)
+      this.setState({ wishList })
+    } catch (err) {
+      console.log('err:', err)
+    }
   }
 
   async loadBooks() {
-    const books = await bookService.getBooks();
-    console.log('books:', books)
-    this.setState({ books })
+    try {
+      const books = await bookService.getBooks();
+      console.log('books:', books)
+      this.setState({ books })
+    } catch (err) {
+      console.log('err:', err)
+    }
   }
 
   bookToShow = () => {

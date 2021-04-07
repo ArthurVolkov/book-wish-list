@@ -5,12 +5,12 @@
 html {
     font-family: Roboto;
     line-height: 1.6;
-    color: $clr5;
+    color: $clr1;
 }
 
 body {
     margin: 0;
-    background-color: $clr1;
+    background-color: $clr5;
 
     &::-webkit-scrollbar {
         width: 10px;
@@ -37,7 +37,7 @@ h4,
 h5,
 h6 {
     font-family: Roboto;
-    color: $clr5;
+    color: $clr1;
     margin: 0 0 20px 0;
     font-weight: 600;
 }
@@ -56,15 +56,15 @@ input {
 
 a {
     text-decoration: none;
-    color: $clr5;
+    color: $clr2;
 }
 
 p {
-    color: $clr5;
+    color: $clr1;
     margin: 0 0 10px 0;
 }
 
 button {
-    color: $clr5;
+    color: $clr1;
     cursor: pointer;
 }
