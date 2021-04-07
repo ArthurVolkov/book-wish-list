@@ -43,7 +43,7 @@ export class BookApp extends Component {
     }
   }
 
-  get bookToShow () {
+  get bookToShow() {
     const book = this.state.books[this.state.currBookIdx]
     return book
   }
@@ -59,12 +59,19 @@ export class BookApp extends Component {
   }
 
   render() {
-    const {books} = this.state
+    const { books, currBookIdx } = this.state
     return (
       <Router>
         <div className="main-layout book-app">
           <AppHeader />
           {books && <BookPreview book={this.bookToShow} onAddToWishList={this.onAddToWishList} onRemoverFromWishList={this.onRemoverFromWishList} />}
+          {books && <div className="book-preview-container">
+            <BookPreview book={this.bookToShow} />
+            {currBookIdx > 0 &&
+              <button onClick={() => this.onChangePage(-1)} className="btn-paging first">⬅</button>}
+            {currBookIdx < books.length - 1 &&
+              <button onClick={() => this.onChangePage(1)} className="btn-paging second">➡</button>}
+          </div>}
           {/* <Switch>
             <Route component={ContactApp} path='/contact' />
             <Route component={Home} path='/' />
